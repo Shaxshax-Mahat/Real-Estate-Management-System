@@ -1,0 +1,63 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+    <br><br><br><br><br><br><br><br><br>
+    <div class="container mt-5 mb-5 d-flex justify-content-center">
+        <div class="card px-4 py-5">
+            <div class="card-body">
+             <h1>Upload Property</h1>
+
+                <form method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="image">Property</label>
+                        <input type="file" id="image" name="image" class="form-control" required>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <select class="form-control" id="title" name="title" required>
+                            <option value="" disabled selected>Select option</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Sale">Sale</option>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" class="form-control" placeholder="Location" required>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="rooms">Rooms</label>
+                        <input type="text" id="rooms" name="rooms" class="form-control" placeholder="No. of rooms" required>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" id="price" name="price" value="ksh." class="form-control" placeholder="" required>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success btn-block">Upload</button>
+                        <a href="{% url 'image' %}" class="btn btn-warning mt-2">Display Images</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+{% endblock %}

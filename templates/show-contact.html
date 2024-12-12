@@ -1,0 +1,46 @@
+{% extends 'starter-page.html' %}
+{% load static %}
+
+{% block body %}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <table class="table table-success container">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Action</th>
+        </tr>
+
+        {% for x in contact %}
+
+            <tr>
+                <td>{{ x.name }}</td>
+                <td>{{ x.phone }}</td>
+                <td>{{ x.email }}</td>
+                <td>{{ x.subject }}</td>
+                <td>{{ x.message }}</td>
+                <td>
+                    <a href="/edit/{{ x.id }}" class="btn btn-warning">EDIT</a>
+                    <a href="/delete/{{ x.id }}" class="btn btn-danger">DELETE</a>
+                </td>
+            </tr>
+
+        {% endfor %}
+
+
+
+
+    </table>
+
+{% endblock %}
